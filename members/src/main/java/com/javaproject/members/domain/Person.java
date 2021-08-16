@@ -7,18 +7,44 @@ import javax.persistence.Id;
 @Entity
 public class Person {
 
-	@Id//ÀÌ °ªÀÌ id°ªÀÌ¶ó°í Ç¥½ÃÇØ ÁÖ±â À§ÇÔ
-	@GeneratedValue //ÀÌ°ªÀ» ÀÚµ¿À¸·Î »ı¼ºÇÏ±â À§ÇÔ
-	private Long id; //person°´Ã¼ ÇÏ³ªÇÏ³ª¸¦ À¯´ÏÅ©ÇÏ°Ô Æ¯Á¤Áş´Â id°ªÀÌ´Ù.
+	@Id//ì´ ê°’ì´ idê°’ì´ë¼ê³  í‘œì‹œí•´ ì£¼ê¸° ìœ„í•¨
+	@GeneratedValue //ì´ê°’ì„ ìë™ìœ¼ë¡œ ìƒì„±í•˜ê¸° ìœ„í•¨
+	private Long id; //personê°ì²´ í•˜ë‚˜í•˜ë‚˜ë¥¼ ìœ ë‹ˆí¬í•˜ê²Œ íŠ¹ì •ì§“ëŠ” idê°’ì´ë‹¤.
 	
 	private String name;
 	private int age;
 	
 	
+	/*Getter, Setter*/
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
 	@Override
 	public String toString() {
 		return "Person [id=" + id + ", name=" + name + ", age=" + age + "]";
-		//°¢ °´Ã¼ÀÇ ÇÊµå°ªÀ» ¹®ÀÚ¿­·Î Ç¥½ÃÇÔ.
+		//ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½Êµå°ªï¿½ï¿½ ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½ï¿½.
 	}
 }
  

@@ -13,44 +13,44 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-@SpringBootTest //ÇØ´çÅ¬·¡½º°¡ ½ºÇÁ¸µºÎÆ®Å×½ºÆ® ÀÓÀ» Ç¥½ÃÇÏ´Â ¾î³ëÅ×ÀÌ¼Ç
+@SpringBootTest //í•´ë‹¹í´ë˜ìŠ¤ê°€ ìŠ¤í”„ë§ë¶€íŠ¸í…ŒìŠ¤íŠ¸ ì„ì„ í‘œì‹œí•˜ëŠ” ì–´ë…¸í…Œì´ì…˜
 class HelloWorldControllerTest {
 
-	@Autowired //½ºÇÁ¸µ ÄÁÅØ½ºÆ®¿¡¼­ ºóÀ» ÁÖÀÔÇÏ°Ú´Ù´Â ¶æ
+	@Autowired //ìŠ¤í”„ë§ ì»¨í…ìŠ¤íŠ¸ì—ì„œ ë¹ˆì„ ì£¼ì…í•˜ê² ë‹¤ëŠ” ëœ»
 	private HelloWorldController helloWorldController;
 	
 	private MockMvc mockMvc;
 	@Test
 	void helloWorld() {
-		//Àß ¼³Á¤ µÇ¾ú´ÂÁö È®ÀÎÇÏ±â
+		//ì˜ ì„¤ì • ë˜ì—ˆëŠ”ì§€ í™•ì¸í•˜ê¸°
 		System.out.println("test");
 		System.out.println(helloWorldController.helloWorld());
 		
-		//½ºÇÁ¸µºÎÆ® ½ºÅ¸ÅÍ Å×½ºÆ®¿¡ Æ÷ÇÔµÈ assertthat¸¦ ÅëÇØ¼­ °ËÁõÀ» ÇØº»´Ù.
+		//ìŠ¤í”„ë§ë¶€íŠ¸ ìŠ¤íƒ€í„° í…ŒìŠ¤íŠ¸ì— í¬í•¨ëœ assertThatë¥¼ í†µí•´ì„œ ê²€ì¦ì„ í•´ë³¸ë‹¤.
 		assertThat(helloWorldController.helloWorld()).isEqualTo("HelloWorld");
-		//helloWorldControllerÀÇ helloWorld°¡ helloWorld¸¦ Àß ¹İÈ¯ ÇÏ°í ÀÖ´ÂÁö °ËÁõ
-		//http È£Ãâ¾øÀÌ ÇØ´ç ÄÁÆ®·Ñ·¯¿¡ ¸Ş¼Òµå¸¦ ÁıÀû È£ÃâÇØ¼­ °á°ú¸¦ ¹Ş¾Æ¿À´Â Å×½ºÆ®
-		//½ÇÁ¦·Î ÀúÈñ´Â http get¸Ş¼Òµå¿¡ ´ëÇØ¼­ api(@GetMapping)¸¦ ¸¸µé¾úÁö¸¸ assertThat¿¡¼­´Â 
-		//ÀÌ·± ºÎºĞÀ» ¹«½ÃÇÏ°í Å×½ºÆ® ÇÑ°Í 		
+		//helloWorldControllerì˜ helloWorldê°€ helloWorldë¥¼ ì˜ ë°˜í™˜ í•˜ê³  ìˆëŠ”ì§€ ê²€ì¦
+		//http í˜¸ì¶œì—†ì´ í•´ë‹¹ ì»¨íŠ¸ë¡¤ëŸ¬ì— ë©”ì†Œë“œë¥¼ ì§‘ì  í˜¸ì¶œí•´ì„œ ê²°ê³¼ë¥¼ ë°›ì•„ì˜¤ëŠ” í…ŒìŠ¤íŠ¸
+		//ì‹¤ì œë¡œ ì €í¬ëŠ” http getë©”ì†Œë“œì— ëŒ€í•´ì„œ api(@GetMapping)ë¥¼ ë§Œë“¤ì—ˆì§€ë§Œ assertThatì—ì„œëŠ” 
+		//ì´ëŸ° ë¶€ë¶„ì„ ë¬´ì‹œí•˜ê³  í…ŒìŠ¤íŠ¸ í•œê²ƒ	
 	}
 	
 	
-	//½ºÇÁ¸µ¿¡¼­ Á¦°øÇÏ´Â Å¬·¡½º¸¦ ÀÌ¿ëÇÑ ¹æ¹ı MockMvc Å×½ºÆ®
-	//assertThatÅ×½ºÆ®¿¡¼­´Â ¹«½ÃÇß´ø °ÍÀ» 
-	//¸ğÀÇ Http ¸®Äù½ºÆ®¿Í ¸®½ºÆù½º¸¦ ¸¸µé¾î¼­ Å×½ºÆ®¸¦ ÁøÇàÇØÁÖ´Â °ÍÀÌ MockMvcÅ×½ºÆ® ÀÌ´Ù.
+	//ìŠ¤í”„ë§ì—ì„œ ì œê³µí•˜ëŠ” í´ë˜ìŠ¤ë¥¼ ì´ìš©í•œ ë°©ë²• MockMvc í…ŒìŠ¤íŠ¸
+	//assertThatí…ŒìŠ¤íŠ¸ì—ì„œëŠ” ë¬´ì‹œí–ˆë˜ ê²ƒì„ 
+	//ëª¨ì˜ Http ë¦¬í€˜ìŠ¤íŠ¸ì™€ ë¦¬ìŠ¤í°ìŠ¤ë¥¼ ë§Œë“¤ì–´ì„œ í…ŒìŠ¤íŠ¸ë¥¼ ì§„í–‰í•´ì£¼ëŠ” ê²ƒì´ MockMvcí…ŒìŠ¤íŠ¸ ì´ë‹¤.
 	@Test
 	void mockMvcTest() throws Exception {
 		
-		//mockMvc¸¦ ¼¼ÆÃÇÔ
+		//mockMvcë¥¼ ì„¸íŒ…í•¨
 		mockMvc = MockMvcBuilders.standaloneSetup(helloWorldController).build();
 		
-		//½ÇÁ¦ µ¿ÀÛÇÏµµ·Ï ¿äÃ»
+		//ì‹¤ì œ ë™ì‘í•˜ë„ë¡ ìš”ì²­
 		mockMvc.perform(
 				MockMvcRequestBuilders
 				.get("/api/helloWorld")
-			).andDo(MockMvcResultHandlers.print()) //Å×½ºÆ®ÀÇ ³»¿ëÀ» È®ÀÎÇÏ±â À§ÇØ
-			.andExpect(MockMvcResultMatchers.status().isOk()) //ÀÚµ¿È­µÈ °á°ú Ã¼Å©¸¦ Ãß°¡		
-			//andExpect:¿¹ÃøÇÑ´Ù. status:»óÅÂ. isOk:okÀÎÁö.
-			.andExpect(MockMvcResultMatchers.content().string("helloWorld")); //helloWorldÀÎÁö È®ÀÎÇÏ±â
+			).andDo(MockMvcResultHandlers.print()) //í…ŒìŠ¤íŠ¸ì˜ ë‚´ìš©ì„ í™•ì¸í•˜ê¸° ìœ„í•´
+			.andExpect(MockMvcResultMatchers.status().isOk()) //ìë™í™”ëœ ê²°ê³¼ ì²´í¬ë¥¼ ì¶”ê°€		
+			//andExpect:ì˜ˆì¸¡í•œë‹¤. status:ìƒíƒœ. isOk:okì¸ì§€.
+			.andExpect(MockMvcResultMatchers.content().string("helloWorld")); //helloWorldì¸ì§€ í™•ì¸í•˜ê¸°
 	}
 }

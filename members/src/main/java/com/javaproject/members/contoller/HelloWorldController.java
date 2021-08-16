@@ -3,9 +3,9 @@ package com.javaproject.members.contoller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-//@Controller //ÄÁÆ®·Ñ·¯ÀÇ ±â´ÉÀ» ¼±¾ğÇÔ
-//@ResponseBody //APIÇü½ÄÀÌ±â ¶§¹®¿¡ »ç¿ë
-@RestController //@Controller¿Í @ResponseBodyÀÇ ±â´ÉÀ» °°ÀÌ ¾µ¼ö ÀÖµµ·Ï Ä¡È¯
+//@Controller //ì»¨íŠ¸ë¡¤ëŸ¬ì˜ ê¸°ëŠ¥ì„ ì„ ì–¸í•¨
+//@ResponseBody //APIí˜•ì‹ì´ê¸° ë•Œë¬¸ì— ì‚¬ìš©
+@RestController //@Controllerì™€ @ResponseBodyì˜ ê¸°ëŠ¥ì„ ê°™ì´ ì“¸ìˆ˜ ìˆë„ë¡ ì¹˜í™˜
 public class HelloWorldController {
 
 	//@PostMapping(value ="/api/helloWorld")
