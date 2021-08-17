@@ -15,21 +15,21 @@ class PersonRepositoryTest {
 
 	@Autowired
 	private PersonRepository personRepository;
-	//PersonRepository BeanÀ» ÁÖÀÔÇÑ´Ù.
+	//PersonRepository Beanì„ ì£¼ì…í•œë‹¤.
 	
 	
 	@Test
 	void crud() { 
-		//crud´Â ·¹ÆÄÁöÅä¸® ¶Ç´Â DBÄõ¸®¿¡¼­ »ç¿ëÇÒ ¶§ ¸¹ÀÌ ¾²´Â °ü¿ë¾î·Î
+		//crudëŠ” ë ˆíŒŒì§€í† ë¦¬ ë˜ëŠ” DBì¿¼ë¦¬ì—ì„œ ì‚¬ìš©í•  ë•Œ ë§ì´ ì“°ëŠ” ê´€ìš©ì–´ë¡œ
 		//create, read, update, delete
-		Person person = new Person(); //Person °´Ã¼¸¦ »õ·Ó°Ô ¸¸µç´Ù.
+		Person person = new Person(); //Person ê°ì²´ë¥¼ ìƒˆë¡­ê²Œ ë§Œë“ ë‹¤.
 		person.setName("martin");
 		person.setAge(10);
 		
-		//jpa ·¹ÆÄÁöÅä¸®¸¦ ÅëÇØ¼­ DB¿¡ ¼¼ÀÌºê ÇÑ´Ù.
+		//jpa ë ˆíŒŒì§€í† ë¦¬ë¥¼ í†µí•´ì„œ DBì— ì„¸ì´ë¸Œ í•œë‹¤.
 		personRepository.save(person);
 		
-		//System.out.println(personRepository.findAll()); //ÀúÀåµÇ¾î ÀÖ´ÂÁö ÄÜ¼Ö¿¡ È®ÀÎ
+		//System.out.println(personRepository.findAll()); //ì €ì¥ë˜ì–´ ìˆëŠ”ì§€ ì½˜ì†”ì— í™•ì¸
 		
 		List<Person> people = personRepository.findAll();
 		
