@@ -30,7 +30,7 @@ class PersonRepositoryTest {
 		//jpa 레파지토리를 통해서 DB에 세이브 한다.
 		personRepository.save(person);
 		
-		//System.out.println(personRepository.findAll()); //저장되어 있는지 콘솔에 확인
+		System.out.println(personRepository.findAll()); //저장되어 있는지 콘솔에 확인
 		
 		List<Person> people = personRepository.findAll();
 		
