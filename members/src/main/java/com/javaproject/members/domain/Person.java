@@ -6,7 +6,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -14,14 +18,21 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
+@NoArgsConstructor //인자가 없는 생성자 만드는 어노테이션
+@AllArgsConstructor //모든 인자가 담긴 생성자 만드는 어노테이션
+@RequiredArgsConstructor 
 public class Person {
 
 	@Id//이 값이 id값이라고 표시해 주기 위함
 	@GeneratedValue //이값을 자동으로 생성하기 위함
 	private Long id; //person객체 하나하나를 유니크하게 특정짓는 id값이다.
 	
+	@NonNull
 	private String name;
+	
+	@NonNull
 	private int age;
+	
 	private String hobby;
 	private String bloodType;
 	private String address;
@@ -32,10 +43,27 @@ public class Person {
 	private String jab;
 	@ToString.Exclude
 	private String phoneNumber;
-	
 	//이렇게 추가한 5개에 대한 Getter,Setter를 추가하게 되면
 	//라인이 너무 길게 되고 별 기능이 없음에도 100라인이 넘어가게 된다.
-	//Lombok으로 대처할 수 있다.
-	 
+	
+	
+	public boolean equals(Object object) {
+		if(object == null) {
+			return false;
+		}
+		
+		Person person = (Person) object;
+		
+		if(!person.getName().equals(this.getName())) {
+			return false;
+		}
+		
+		if(person.getAge() != this.getAge()) {
+			return false;
+		}
+		
+		return true;
+	}
+
 }
  
