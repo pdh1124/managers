@@ -1,9 +1,7 @@
 package com.javaproject.members.repository;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-import java.time.LocalDate;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,12 +43,20 @@ class PersonRepositoryTest {
 	
 	@Test
 	void HashCodeAndEquals() {
-		Person person1 = new Person("margin", 10);
-		Person person2 = new Person("margin", 10);
+		Person person1 = new Person("margin", 10, "A");
+		Person person2 = new Person("margin", 10, "B");
 		
 		System.out.println(person1.equals(person2));
 		System.out.println(person1.hashCode());
-		System.out.println(person2.hashCode());
+		System.out.println(person2.hashCode()); 
+		
+		Map<Person, Integer> map = new HashMap<>();
+		map.put(person1, person1.getAge());
+		
+		System.out.println(map);
+		System.out.println(map.get(person2));
+		//원래는 person1을 가져왔지만 person2와 값이 같기 때문에 키에 person1을 넣었지만 person2로도 가져올 수 있을 것이다라는 예상
+		
 	}
 	
 }
